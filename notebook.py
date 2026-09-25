@@ -15,12 +15,19 @@ def Fibonacci(n) :
     F(n) = F(n−1) + F(n−2)    for n ≥ 2
     
     '''
-    if (n == 0) :
-        return 0 
-    if (n == 1) : 
+    # refactored version (iterative version)
+    if (n == 0): 
+        return 0
+    if (n == 1): 
         return 1
     else : 
-        return (Fibonacci(n-1) + Fibonacci(n-2))
+        a = 1
+        b = 1
+        for i in range(2,n) : 
+            c = a + b
+            a = b 
+            b = c
+        return c
 
 
 @app.cell
