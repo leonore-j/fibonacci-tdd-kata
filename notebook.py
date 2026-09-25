@@ -4,6 +4,25 @@ __generated_with = "0.24.2"
 app = marimo.App(width="medium")
 
 
+@app.cell
+def _():
+    def _():
+        # Documentation 
+        import marimo as mo
+        return mo.md("""
+        # Fibonacci
+
+        The Fibonacci(n) function computes the nth Fibonacci number.
+
+        - Input: n, a non-negative integer
+        - Output: the nth Fibonacci number
+        """)
+
+
+    _()
+    return
+
+
 @app.function
 # Fibonacci sequence 
 
@@ -41,6 +60,26 @@ def _():
 
 
 
+    return
+
+
+@app.cell
+def _():
+    # Widget to pick a value 
+    import marimo as mo
+
+    x = mo.ui.slider(start=0, stop=20,step=1)
+    x
+
+    return mo, x
+
+
+@app.cell
+def _(mo, x):
+    # Display the result
+
+    result = Fibonacci(x.value)
+    mo.md(f"The {x.value}th Fibonacci number is **{result}**.")
     return
 
 
