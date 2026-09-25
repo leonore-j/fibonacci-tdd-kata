@@ -17,5 +17,19 @@ def Fibonacci(n) :
     '''
 
 
+@app.cell
+def _():
+    # Tests to pass
+    import random 
+
+    assert(Fibonacci(0) == 0)
+    assert(Fibonacci(1) == 1)
+
+    n = random.randint(2,100)
+    assert(Fibonacci(n) == Fibonacci(n-1) + Fibonacci(n-2))
+
+    return
+
+
 if __name__ == "__main__":
     app.run()
