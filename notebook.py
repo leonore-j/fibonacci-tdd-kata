@@ -26,7 +26,7 @@ def _():
 @app.function
 # Fibonacci sequence 
 
-def Fibonacci(n) :
+def Fibonacci(n, computed = {0: 0, 1: 1}) :
     '''
     Reminder: the Fibonacci sequence is defined by  
     F(0) = 0  
@@ -34,19 +34,11 @@ def Fibonacci(n) :
     F(n) = F(n−1) + F(n−2)    for n ≥ 2
     
     '''
-    # refactored version (iterative version)
-    if (n == 0): 
-        return 0
-    if (n == 1): 
-        return 1
-    else : 
-        a = 1
-        b = 1
-        for i in range(2,n) : 
-            c = a + b
-            a = b 
-            b = c
-        return c
+    # refactored version (using memoization - algorith found on stackoverflow.com)
+
+    if n not in computed:
+        computed[n] = Fibonacci(n-1, computed) + Fibonacci(n-2, computed)
+    return computed[n]
 
 
 @app.cell
@@ -58,8 +50,12 @@ def _():
     assert(Fibonacci(3) == 2)
     assert(Fibonacci(10) == 55)
 
-
-
+    # Additional tests for large value of n
+    assert(Fibonacci(100)==354224848179261915075)
+    print(Fibonacci(1000))  # Result should be equal to 4.3467 × 10²⁰⁸
+    assert(len(str(Fibonacci(1000)))-1 == 208)
+    print(str(Fibonacci(1000))[:6]) # Result = 434665
+    # the two last unit tests show that we Fibonacci(1000) = 4.3467 × 10²⁰⁸
     return
 
 
@@ -70,7 +66,6 @@ def _():
 
     x = mo.ui.slider(start=0, stop=20,step=1)
     x
-
     return mo, x
 
 
