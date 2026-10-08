@@ -47,7 +47,7 @@ select = ["E", "F", "I", "UP", "B"]   # pyflakes, pycodestyle, isort, pyupgrade,
 "notebooks/*.py" = ["B018"]
 
 [tool.mypy]
-strict = true-
+strict = true
 files = ["src"]
 
 [tool.coverage.run]
