@@ -1,5 +1,4 @@
 import marimo
-
 import pytest
 
 __generated_with = "0.24.2"
@@ -22,7 +21,6 @@ def _():
 
 
     _()
-    return
 
 
 @app.function
@@ -88,7 +86,6 @@ def _():
     import marimo as mo
 
     x = mo.ui.slider(start=0, stop=20,step=1)
-    x
     return mo, x
 
 
@@ -98,7 +95,6 @@ def _(mo, x):
 
     result = fibonacci(x.value)
     mo.md(f"The {x.value}th Fibonacci number is **{result}**.")
-    return
 
 
 if __name__ == "__main__":
