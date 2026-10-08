@@ -17,6 +17,8 @@ def fibonacci(n, computed = None) :
         computed = {0: 0, 1: 1}
     
     # refactored version (using memoization - algorith found on stackoverflow.com)
-    if n not in computed:
-        computed[n] = fibonacci(n-1, computed) + fibonacci(n-2, computed)
+    for i in range(2, n + 1):
+        if i not in computed:
+            computed[i] = computed[i - 1] + computed[i - 2]
+            
     return computed[n]
