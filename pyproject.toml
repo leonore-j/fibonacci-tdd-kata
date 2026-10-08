@@ -1,5 +1,5 @@
 [project]
-name = "fibonacci-kata"
+name = "fibonacci-kata-lj"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -10,7 +10,7 @@ requires-python = ">=3.11"
 dependencies = []
 
 [project.scripts]
-fibonacci-kata = "fibonacci_kata:main"
+fibonacci-kata-lj = "fibonacci_kata:main"
 
 [build-system]
 requires = ["hatchling"]
