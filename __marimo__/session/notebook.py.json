@@ -7,14 +7,67 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "062d97ee9a1217ccc5dae5a2c7f37ea3",
+      "code_hash": "c206674f5e0dae93c4000ff9d80969f9",
       "outputs": [],
       "console": []
     },
     {
-      "id": "Pknv",
-      "code_hash": null,
-      "outputs": [],
+      "id": "MJUe",
+      "code_hash": "b3ed36b0a43a52ccbf1dca6d0784fe6e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "a718a7baeed94e7c4bee6bd3d02abda3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875\n434665\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "da10f326aa31bd063a45fe1e5d918d33",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='54625878-40ed-9970-1019-a6bcd53ee6f6'><marimo-slider data-initial-value='0' data-label='null' data-start='0' data-stop='20' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "1f6f30d426b2d2f3a72c85bb972fbb51",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The 14th Fibonacci number is <strong>377</strong>.</span></span>"
+          }
+        }
+      ],
       "console": []
     }
   ]

@@ -1,5 +1,7 @@
 import marimo
 
+import pytest
+
 __generated_with = "0.24.2"
 app = marimo.App(width="medium")
 
@@ -26,7 +28,7 @@ def _():
 @app.function
 # Fibonacci sequence 
 
-def Fibonacci(n, computed = {0: 0, 1: 1}) :
+def fibonacci(n, computed = {0: 0, 1: 1}) :
     '''
     Reminder: the Fibonacci sequence is defined by  
     F(0) = 0  
@@ -37,26 +39,42 @@ def Fibonacci(n, computed = {0: 0, 1: 1}) :
     # refactored version (using memoization - algorith found on stackoverflow.com)
 
     if n not in computed:
-        computed[n] = Fibonacci(n-1, computed) + Fibonacci(n-2, computed)
+        computed[n] = fibonacci(n-1, computed) + fibonacci(n-2, computed)
     return computed[n]
 
 
 @app.cell
-def _():
-    # Tests to pass
 
-    assert(Fibonacci(0) == 0)
-    assert(Fibonacci(1) == 1)
-    assert(Fibonacci(3) == 2)
-    assert(Fibonacci(10) == 55)
+@pytest.mark.parametrize(("n", "expected"),
+[(0, 0),(1, 1),(2, 1),(3, 2),(5, 5),(10, 55),(20, 6765)])
 
-    # Additional tests for large value of n
-    assert(Fibonacci(100)==354224848179261915075)
-    print(Fibonacci(1000))  # Result should be equal to 4.3467 × 10²⁰⁸
-    assert(len(str(Fibonacci(1000)))-1 == 208)
-    print(str(Fibonacci(1000))[:6]) # Result = 434665
-    # the two last unit tests show that we Fibonacci(1000) = 4.3467 × 10²⁰⁸
-    return
+def test_fibonacci_small_values(n, expected):
+    assert fibonacci(n) == expected
+
+def test_fibonacci_100_exact_value():
+    assert fibonacci(100) == 354224848179261915075
+
+def test_fibonacci_1000():
+    # result to long to check the exact value
+    # instead we check some results properties
+    # F(1000) ≈ 4.3466 × 10^208 
+    result = str(fibonacci(1000))
+    assert len(result) == 209
+    assert result.startswith("434665")
+
+@pytest.mark.parametrize("n", [2, 10, 50, 500])
+def test_fibonacci_recurrence(n):
+    assert fibonacci(n) == fibonacci(n - 1) + fibonacci(n - 2)
+
+def test_fibonacci_negative_raises():
+    with pytest.raises(ValueError):
+        fibonacci(-1)
+
+
+@pytest.mark.parametrize("bad_input", [1.5, "10", None])
+def test_fibonacci_invalid_type_raises(bad_input):
+    with pytest.raises(TypeError):
+        fibonacci(bad_input)
 
 
 @app.cell
@@ -73,7 +91,7 @@ def _():
 def _(mo, x):
     # Display the result
 
-    result = Fibonacci(x.value)
+    result = fibonacci(x.value)
     mo.md(f"The {x.value}th Fibonacci number is **{result}**.")
     return
 
