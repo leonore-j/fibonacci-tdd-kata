@@ -1,4 +1,4 @@
-def fibonacci(n, computed = {0: 0, 1: 1}) :
+def fibonacci(n, computed = None) :
     '''
     Reminder: the Fibonacci sequence is defined by  
     F(0) = 0  
@@ -11,6 +11,10 @@ def fibonacci(n, computed = {0: 0, 1: 1}) :
         raise TypeError("n must be an integer") # not an integer
     if n < 0:
         raise ValueError("n must be non-negative") # negative
+
+    # first call of the function
+    if computed is None:
+        computed = {0: 0, 1: 1}
     
     # refactored version (using memoization - algorith found on stackoverflow.com)
     if n not in computed:
