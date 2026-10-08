@@ -20,5 +20,5 @@ def fibonacci(n, computed = None) :
     for i in range(2, n + 1):
         if i not in computed:
             computed[i] = computed[i - 1] + computed[i - 2]
-            
+
     return computed[n]
