@@ -16,7 +16,7 @@ with app.setup:
     import matplotlib.pyplot as plt
     from collections import Counter
 
-    from fibonacci_kata import fibonacci
+    from fibonacci_kata.core import fibonacci
 
 
 @app.cell
@@ -61,7 +61,7 @@ def _(results):
         color=["#4c72b0", "#dd8452", "#55a868", "#c44e52"],
     )
     ax.set_ylabel("Count")
-    ax.set_title("Distribution of Fibonacii outputs over the selected range")
+    ax.set_title("Distribution of Fibonacci outputs over the selected range")
     fig
     return
 
