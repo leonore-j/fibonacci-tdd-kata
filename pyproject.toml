@@ -11,6 +11,7 @@ dependencies = []
 
 [project.scripts]
 fibonacci-kata-lj = "fibonacci_kata:main"
+fibonacci-kata = "fibonacci_kata.cli:main"
 
 [build-system]
 requires = ["hatchling"]
